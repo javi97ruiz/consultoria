@@ -169,7 +169,7 @@ function EjemplosConsultas() {
       {/* Footer igual que en App */}
       <Box component="footer" bgcolor="#00594f" color="white" p={2} textAlign="center">
         <Typography variant="body2">
-          © 2025 Mi Consultoría
+          © 2025 JM Incapacidades
         </Typography>
       </Box>
     </Box>

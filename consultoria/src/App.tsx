@@ -29,9 +29,16 @@ const App: React.FC = () => {
       <AppBar position="static">
         <Toolbar sx={{ justifyContent: 'space-between', backgroundColor: '#00594f' }}>
           {/* Logo en la parte izquierda */}
-          <Typography variant="h6" component="div">
-            Mi Logo
-          </Typography>
+            <Box
+                component="img"
+                src="/Logo.jpg"
+                alt="Mi logo"
+                sx={{
+                    height: 40,       // ajusta según necesites
+                    width: 'auto',
+                }}
+            />
+
 
           {/* Enlaces en la parte derecha */}
           <Box>
@@ -353,7 +360,7 @@ const App: React.FC = () => {
       {/* Footer en la parte inferior */}
       <Box component="footer" bgcolor="#00594f" color="white" p={2} textAlign="center">
         <Typography variant="body2">
-          © 2025 Mi Consultoría
+          © 2025 JM Incapacidades
         </Typography>
       </Box>
     </Box>

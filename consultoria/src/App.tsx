@@ -9,7 +9,7 @@ import { Pagination, Autoplay } from 'swiper/modules';
 import './css/styles.css';
 import ContactForm from "./components/ContactForm";
 import { useNavigate } from 'react-router-dom';
-
+import GoogleCalendarButton from "./components/GoogleCalendarButton"
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ const App: React.FC = () => {
           {/* Logo en la parte izquierda */}
             <Box
                 component="img"
-                src="/Logo.jpg"
+                src="/LogoCompleto.jpg"
                 alt="Mi logo"
                 sx={{
                     height: 40,       // ajusta según necesites
@@ -118,36 +118,17 @@ const App: React.FC = () => {
           {/* Texto descriptivo a la izquierda */}
           <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 20, textAlign: 'center' }}>
-              ¿Estas de baja médica y no sabes que pasará ahora?
+                Especialistas en incapacidad permanente
             </Typography>
             <Typography variant="body1" sx={{ textAlign: 'center' }}>
-              Descubre si puedes optar a una incapacidad permanente y qué opciones legales tienes. Atención personalizada, claridad desde el primer momento.
+                Solo trabajamos casos de incapacidades permanentes, lo que nos permite darle un trato 100% personalizado,
+                con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
+                <li>Trato cercano y humano</li>
+                <li>Primer análisis gratuito</li>
+                <li>Explicación clara de las fases del proceso</li>
+                <li>Pago por fases- facilidades de pago.</li>
             </Typography>
-            <Button
-              color="inherit"
-              sx={{
-                mt: 2,
-                backgroundColor: "#00594f",
-                color: "#fff",
-                borderRadius: "4px",
-                fontSize: "14px",
-                padding: "8px 20px",
-                transition: "background 0.2s",
-                '&:hover': {
-                  backgroundColor: "#00413a",
-                  color: "#fff",
-                },
-                boxShadow: "0 2px 6px rgba(0,0,0,0.08)"
-              }}
-              onClick={() => {
-                const section = document.getElementById('contacto');
-                if (section) {
-                  section.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            >
-              Saber más
-            </Button>
+              <GoogleCalendarButton />
           </Box>
 
           {/* Carrusel de imágenes a la derecha */}
@@ -275,17 +256,13 @@ const App: React.FC = () => {
           {/* Texto descriptivo a la derecha */}
           <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 13, textAlign: 'center' }}>
-              ¿Te suena alguna de estas situaciones?
+                ¿Tiene alguna condición incapacitante que le condicione laboralmente?
             </Typography>
             <Box sx={{ textAlign: 'left', mb: 2 }}>
               <ul style={{ paddingLeft: 20, margin: 0, fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', fontSize: '1rem', color: 'inherit', lineHeight: 2.5 }}>
-                <li>Estás de baja médica y nadie te explica qué derechos tienes.</li>
-                <li>No sabes si puedes pedir una incapacidad permanente.</li>
-                <li>Te sientes perdido entre trámites, plazos y decisiones que no entiendes.</li>
+                <li>Descubra si puede optar a una incapacidad permanente y qué opciones legales tiene.</li>
+                <li>Atención personalizada, claridad desde el primer momento.</li>
               </ul>
-              <Typography variant="body1" sx={{ mt: 7, textAlign: 'left' }}>
-                No estás solo. Es normal sentirse así. Aquí empieza tu claridad.
-              </Typography>
             </Box>
             
           </Box>
@@ -384,8 +361,12 @@ const App: React.FC = () => {
               px={2}
             >
               <Typography variant="body1" sx={{ textAlign: 'left', fontStyle: 'italic', mb: 2 }}>
-                “Josep me explicó todo con una claridad brutal. Me sentí acompañado y hoy tengo mi incapacidad reconocida.”<br />
-                <span style={{ fontStyle: 'normal', fontWeight: 500 }}>– Laura, Barcelona</span>
+                  «Mi esposo sufre una lesión degenerativa y no sabíamos cómo iniciar el trámite.
+                  JM Incapacidades nos orientó desde cero, preparó toda la documentación y nos acompañó
+                  hasta la resolución final.
+                  Conseguimos la incapacidad permanente absoluta.
+                  Su empatía y claridad lo hicieron todo más fácil.»<br />
+                <span style={{ fontStyle: 'normal', fontWeight: 500 }}>— Elena G., Barcelona</span>
               </Typography>
             </Box>
             {/* Testimonio 2 a la derecha */}
@@ -398,10 +379,50 @@ const App: React.FC = () => {
               px={2}
             >
               <Typography variant="body1" sx={{ textAlign: 'left', fontStyle: 'italic', mb: 2 }}>
-                “Después de tanta confusión, encontrar a alguien que solo se dedica a esto fue un alivio. Lo recomiendo al 100%.”<br />
-                <span style={{ fontStyle: 'normal', fontWeight: 500 }}>– Marc, Terrassa</span>
+                  “Me explicaron todo el proceso con total claridad.
+                  Me sentí muy acompañada durante todo el proceso,
+                  y hoy tengo mi incapacidad reconocida.”
+                  <br />
+                <span style={{ fontStyle: 'normal', fontWeight: 500 }}>– Laura L., Barcelona</span>
               </Typography>
             </Box>
+              {/* Testimonio 3 a la izquierda */}
+              <Box
+                  width={{ xs: "100%", md: "45%" }}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="flex-end"
+                  px={2}
+              >
+                  <Typography variant="body1" sx={{ textAlign: 'left', fontStyle: 'italic', mb: 2 }}>
+                      «Acudí a JM Incapacidades porque no entendía por qué mi solicitud
+                      había sido rechazada. Me explicaron mi situación con claridad,
+                      recopilaron todos los informes que necesitaba y prepararon
+                      la reclamación previa. Hoy tengo reconocida mi incapacidad permanente absoluta.
+                      Solo tengo palabras de agradecimiento.»
+                      <br />
+                      <span style={{ fontStyle: 'normal', fontWeight: 500 }}>— María del Carmen S., Tarragona</span>
+                  </Typography>
+              </Box>
+              {/* Testimonio 4 a la derecha */}
+              <Box
+                  width={{ xs: "100%", md: "45%" }}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="center"
+                  alignItems="flex-start"
+                  px={2}
+              >
+                  <Typography variant="body1" sx={{ textAlign: 'left', fontStyle: 'italic', mb: 2 }}>
+                      «Después de dos denegaciones, estaba agotado y sin fuerzas para seguir.
+                      JM Incapacidades revisó mi expediente, detectó los errores y me acompañó en todo el proceso.
+                      Gracias a su trabajo conseguí finalmente la incapacidad permanente total.
+                      Lo que más valoro es la tranquilidad que me dieron en cada paso.»
+                      <br />
+                      <span style={{ fontStyle: 'normal', fontWeight: 500 }}>— Antonio M., Figueres</span>
+                  </Typography>
+              </Box>
           </Box>
         </Box>
 
@@ -436,8 +457,8 @@ const App: React.FC = () => {
     }}
   >
     <li>Solicitas tu análisis gratuito</li>
-    <li>Te explico tu situación y opciones reales</li>
-    <li>Te acompaño paso a paso en todo el proceso, sin sorpresas</li>
+    <li>Le explicamos su situación y opciones reales</li>
+    <li>Le acompañamos paso a paso en todo el proceso, sin sorpresas</li>
   </Box>
 </Box>
 
@@ -453,13 +474,12 @@ const App: React.FC = () => {
 >
   <Box width="100%" maxWidth={700} display="flex" flexDirection="column" alignItems="center">
     <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', mb: 10}}>
-      Sobre mí
-    </Typography>
-    <Typography variant="h6" gutterBottom sx={{ textAlign: 'center', mt: 1 }}>
-      Josep Maria Merino – Abogado especializado
+      Sobre nosotros
     </Typography>
     <Typography variant="body1" sx={{ textAlign: 'center', mt: 10 }}>
-      Llevo años trabajando exclusivamente en casos de incapacidad permanente. Mi enfoque es humano, cercano y realista. No prometo lo imposible: te explico lo que sí se puede hacer, cuándo y cómo.
+        10 años de experiencia trabajando exclusivamente en casos de incapacidad permanente
+        respaldan nuestro trabajo. Nos distingue nuestro enfoque humano, cercano y realista con el cliente.
+        Absoluta honestidad frente a su caso: le explicamos lo que se puede hacer, cuándo y cómo.
     </Typography>
   </Box>
 </Box>
@@ -483,20 +503,30 @@ const App: React.FC = () => {
                 ¿Y si no me conceden la incapacidad?
               </Typography>
               <Typography variant="body1" sx={{ mb: 2 }}>
-                Te explico desde el principio las probabilidades reales. No todos los casos se ganan, pero siempre tendrás claridad.
-              </Typography>
+                  Le explicamos desde el principio las probabilidades reales.
+                  No todos los casos se ganan, pero siempre tendrá claridad.              </Typography>
               <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2 }}>
-                ¿Cuánto cuesta?
+                  ¿Cuáles son nuestros honorarios?
               </Typography>
               <Typography variant="body1" sx={{ mb: 2 }}>
-                Trabajo por fases, y puedes pagar a medida que avanzamos. Sin sorpresas ni tarifas ocultas.
+                  Trabajamos por fases, y los pagos se realizan después de cada fase.
+                  Solo se paga por trabajo efectivamente realizado, no hay pagos por adelantado.
+                  Sin sorpresas ni tarifas ocultas.
               </Typography>
               <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2 }}>
                 ¿Cuánto tarda el proceso?
               </Typography>
               <Typography variant="body1">
-                Cada caso es distinto, pero te detallo los plazos desde el primer momento para que sepas qué esperar.
+                  Cada caso es distinto,
+                  pero le detallamos los plazos desde el primer momento para que sepa qué esperar.
               </Typography>
+                <Typography variant="subtitle1" sx={{ fontWeight: 600, mt: 2 }}>
+                    ¿Se puede tramitar todo el proceso de forma online?
+                </Typography>
+                <Typography variant="body1">
+                    Sí. No se tiene que desplazar.
+                    Nos adaptamos a las circunstancias de cada cliente.
+                </Typography>
             </Box>
             <Button
               color="inherit"
@@ -539,7 +569,10 @@ const App: React.FC = () => {
               Contacto
             </Typography>
             <Typography variant="body1" sx={{ textAlign: 'center' }}>
-              Ponte en contacto con nosotros para más información. Estamos disponibles para atender tus consultas y ayudarte a encontrar la mejor solución para tus necesidades.
+              Ponte en contacto con nosotros para más información.
+                Estamos disponibles para atender tus consultas
+                y ayudarte a encontrar la mejor solución para tus necesidades.
+                <li>info@jmincapacidades.com </li>
             </Typography>
             <ContactForm />
           </Box>

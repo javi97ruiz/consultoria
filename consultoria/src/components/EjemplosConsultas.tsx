@@ -6,19 +6,26 @@ import '../css/styles.css';
 const ejemplos = [
   {
     pregunta: "¿Cómo puedo solicitar una cita?",
-    descripcion: "Puedes solicitar una cita a través de nuestro formulario de contacto, por teléfono o por correo electrónico. Nuestro equipo te responderá lo antes posible para confirmar la disponibilidad.",
+    descripcion: "Puede solicitar una cita a través del botón ‘Solicitar Análisis Gratuito’. " +
+        "Ahí podrá ver los días y horas disponibles a tiempo real para una primera valoración. \n" +
+        "También a través de nuestro formulario de contacto, por teléfono o por correo electrónico. " +
+        "Nuestro equipo le responderá lo antes posible para confirmar la disponibilidad.\n",
   },
   {
     pregunta: "¿Qué documentación necesito para una consulta legal?",
-    descripcion: "Generalmente, necesitarás tu DNI y cualquier documento relevante al caso. Si tienes dudas, consúltanos antes de tu cita y te indicaremos qué traer.",
+    descripcion: "Generalmente, necesitará su DNI y los informes médicos sobre su caso " +
+        "(principalmente los referentes a los últimos dos años). " +
+        "Si tiene dudas, se las aclararemos en una primera cita telefónica." ,
   },
   {
     pregunta: "¿Cuánto cuesta una consulta inicial?",
-    descripcion: "La consulta inicial tiene un coste fijo que te informaremos al contactar. En algunos casos, la primera consulta puede ser gratuita dependiendo del tipo de servicio.",
+    descripcion: "En algunos casos, la primera consulta puede ser gratuita dependiendo del tipo de servicio. " +
+        "Si no fuera así, le informaremos de su precio." ,
   },
   {
     pregunta: "¿Puedo recibir asesoría online?",
-    descripcion: "Sí, ofrecemos asesoría online mediante videollamada o correo electrónico. Indícanos tu preferencia al solicitar la consulta.",
+    descripcion: "Sí, ofrecemos asesoría online mediante llamada, videollamada o correo electrónico. " +
+        "Indícanos tu preferencia al solicitar la consulta.",
   },
 ];
 

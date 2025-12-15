@@ -132,60 +132,30 @@ const App: React.FC = () => {
           </Box>
 
           {/* Carrusel de imágenes a la derecha */}
-          <Box width="75%" height="100%" display="flex" justifyContent="center" minWidth={0} alignItems="center"
-            sx={{
-              '& .swiper-pagination-bullet': {
-              backgroundColor: '#00594f', // Cambia el color de los puntos
-              width: '12px', // Cambia el tamaño de los puntos
-              height: '12px',
-              opacity: 0.2, // Ajusta la opacidad
-              },
-              '& .swiper-pagination-bullet-active': {
-                backgroundColor: '#008c7a', // Cambia el color del punto activo
-                opacity: 1, // Asegura que el punto activo sea completamente visible
-              },
-            }}
-          >
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 6000 }}
-              spaceBetween={30}
-              slidesPerView={1}
-              style={{ height: '90%', margin: '20px' }}
+            <Box
+                width="75%"
+                height="100%"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                minWidth={0}
             >
-              <SwiperSlide>
                 <Box
-                  component="img"
-                  src="../public/Recurso-17entrevista.png"
-                  alt="Imagen 1"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
+                    component="img"
+                    src="/FotoOficial.jpg"
+                    alt="Imagen principal"
+                    sx={{
+                        width: '100%',
+                        height: {
+                            xs: 'auto',     // móvil
+                            md: '90%',      // desktop
+                        },
+                        maxHeight: '100%',
+                        objectFit: 'cover',
+                        borderRadius: 2,
+                    }}
                 />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/despacho-abogados-consultoria-integral.webp"
-                  alt="Imagen 2"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/imagen3-seccion1.jpg"
-                  alt="Imagen 3"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-            </Swiper>
-          </Box>
+            </Box>
         </Box>
 
         {/* Sección Consulta */}

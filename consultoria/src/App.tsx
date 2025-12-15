@@ -183,10 +183,6 @@ const App: React.FC = () => {
                                 borderRadius: 3,
                                 boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
                                 transition: 'transform 0.3s, box-shadow 0.3s',
-                                '&:hover': {
-                                    transform: 'scale(1.02)',
-                                    boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                }
                             }}
                         />
                     </Box>
@@ -227,10 +223,6 @@ const App: React.FC = () => {
                                 borderRadius: 3,
                                 boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
                                 transition: 'transform 0.3s, box-shadow 0.3s',
-                                '&:hover': {
-                                    transform: 'scale(1.02)',
-                                    boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                }
                             }}
                         />
                     </Box>
@@ -581,10 +573,6 @@ const App: React.FC = () => {
                                     borderRadius: 3,
                                     boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
                                     transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        transform: 'scale(1.02)',
-                                        boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                    }
                                 }}
                             />
                         </Box>
@@ -665,10 +653,6 @@ const App: React.FC = () => {
                                     borderRadius: 3,
                                     boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
                                     transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        transform: 'scale(1.02)',
-                                        boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                    }
                                 }}
                             />
                         </Box>
@@ -842,20 +826,16 @@ const App: React.FC = () => {
                             src="/ConversacionTelefonica.jpg"
                             alt="Imagen principal"
                             sx={{
-                                width: '100%',
+                                width: '95%',
                                 height: {
                                     xs: 'auto',
                                     md: '90%',
                                 },
-                                maxHeight: '100%',
+                                maxHeight: '95%',
                                 objectFit: 'cover',
                                 borderRadius: 3,
                                 boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
                                 transition: 'transform 0.3s, box-shadow 0.3s',
-                                '&:hover': {
-                                    transform: 'scale(1.02)',
-                                    boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                }
                             }}
                         />
                     </Box>

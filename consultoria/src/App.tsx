@@ -117,7 +117,7 @@ const App: React.FC = () => {
         >
           {/* Texto descriptivo a la izquierda */}
           <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
-            <Typography variant="h4" gutterBottom sx={{ marginBottom: 20, textAlign: 'center' }}>
+            <Typography variant="h4" gutterBottom sx={{ marginBottom: 5, textAlign: 'center' }}>
                 Especialistas en incapacidad permanente
             </Typography>
             <Typography variant="body1" sx={{ textAlign: 'center' }}>

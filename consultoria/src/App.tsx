@@ -1,13 +1,14 @@
-import React from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
+import { useState } from "react";
 import './css/styles.css';
 import ContactForm from "./components/ContactForm";
 import { useNavigate } from 'react-router-dom';
 import GoogleCalendarButton from "./components/GoogleCalendarButton"
 /*import VideoPlayer from "./components/VideoPlayer.tsx";*/
 
-const App: React.FC = () => {
+const App = () => {
+
     const navigate = useNavigate();
 
     const handleScroll = (sectionId: string) => {
@@ -17,7 +18,7 @@ const App: React.FC = () => {
         }
     };
 
-
+    const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
     return (
         <Box
@@ -28,93 +29,107 @@ const App: React.FC = () => {
         >
             {/* Menú en la parte superior */}
             <AppBar position="static" elevation={2}>
-                <Toolbar sx={{
-                    justifyContent: 'space-between',
-                    backgroundColor: '#00594f',
-                    px: { xs: 2, md: 4 },
-                    py: 1.5
-                }}>
-                    {/* Logo en la parte izquierda */}
+                <Toolbar
+                    sx={{
+                        justifyContent: "space-between",
+                        backgroundColor: "#00594f",
+                        px: { xs: 2, md: 4 },
+                        py: 1.5
+                    }}
+                >
+                    {/* Logo */}
                     <Box
                         component="img"
                         src="/LogoCompleto.jpg"
                         alt="Mi logo"
                         sx={{
                             height: 48,
-                            width: 'auto',
-                            transition: 'transform 0.2s',
-                            '&:hover': {
-                                transform: 'scale(1.05)'
-                            }
+                            width: "auto",
+                            cursor: "pointer"
                         }}
+                        onClick={() => handleScroll("inicio")}
                     />
 
+                    {/* Botón hamburguesa (solo móvil) */}
+                    <Box
+                        sx={{
+                            display: { xs: "flex", md: "none" },
+                            cursor: "pointer",
+                            fontSize: "2rem",
+                            color: "#fff",
+                            userSelect: "none",
+                        }}
+                        onClick={() => setMenuOpen(prev => !prev)}
+                    >
+                        ☰
+                    </Box>
 
-                    {/* Enlaces en la parte derecha */}
-                    <Box display="flex" gap={2}>
-                        <Button
-                            color="inherit"
-                            onClick={() => handleScroll('inicio')}
-                            sx={{
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                transition: 'all 0.3s',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
-                                    transform: 'translateY(-2px)'
-                                }
-                            }}
-                        >
+
+                    {/* Menú desktop */}
+                    <Box
+                        display={{ xs: "none", md: "flex" }}
+                        gap={2}
+                    >
+                        <Button color="inherit" onClick={() => handleScroll("inicio")}>
                             Inicio
                         </Button>
-                        <Button
-                            color="inherit"
-                            onClick={() => handleScroll('consulta')}
-                            sx={{
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                transition: 'all 0.3s',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
-                                    transform: 'translateY(-2px)'
-                                }
-                            }}
-                        >
+                        <Button color="inherit" onClick={() => handleScroll("consulta")}>
                             Consultas
                         </Button>
-                        <Button
-                            color="inherit"
-                            onClick={() => handleScroll('contacto')}
-                            sx={{
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                transition: 'all 0.3s',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
-                                    transform: 'translateY(-2px)'
-                                }
-                            }}
-                        >
+                        <Button color="inherit" onClick={() => handleScroll("contacto")}>
                             Contacto
                         </Button>
-                        <Button
-                            color="inherit"
-                            sx={{
-                                fontSize: '1rem',
-                                fontWeight: 500,
-                                transition: 'all 0.3s',
-                                '&:hover': {
-                                    backgroundColor: 'rgba(255,255,255,0.1)',
-                                    transform: 'translateY(-2px)'
-                                }
-                            }}
-                            onClick={() => navigate('/blog')}
-                        >
+                        <Button color="inherit" onClick={() => navigate("/blog")}>
                             Blog
                         </Button>
                     </Box>
                 </Toolbar>
             </AppBar>
+
+            {menuOpen && (
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: 64,
+                        right: 0,
+                        width: "100%",
+                        backgroundColor: "#00594f",
+                        display: { xs: "flex", md: "none" },
+                        flexDirection: "column",
+                        zIndex: 1200,
+                    }}
+                >
+                    {[
+                        { label: "Inicio", action: () => handleScroll("inicio") },
+                        { label: "Consultas", action: () => handleScroll("consulta") },
+                        { label: "Contacto", action: () => handleScroll("contacto") },
+                        { label: "Blog", action: () => navigate("/blog") },
+                    ].map((item: { label: string; action: () => void }) => (
+                        <Button
+                            key={item.label}
+                            sx={{
+                                color: "#fff",
+                                justifyContent: "flex-start",
+                                px: 3,
+                                py: 2,
+                                borderRadius: 0,
+                                "&:hover": {
+                                    backgroundColor: "#00413a",
+                                },
+                            }}
+                            onClick={() => {
+                                item.action();
+                                setMenuOpen(false);
+                            }}
+                        >
+                            {item.label}
+                        </Button>
+                    ))}
+                </Box>
+            )}
+
+
+
 
             {/* Cuerpo en el medio */}
             <Box component="main" flex={1} overflow="auto">
@@ -259,10 +274,10 @@ const App: React.FC = () => {
                 {/* Sección Servicios */}
                 <Box
                     id="servicios"
-                    minHeight="100vh"
+                    minHeight={{ xs: "auto", md: "100vh" }}
                     display="flex"
                     flexDirection="column"
-                    justifyContent="center"
+                    justifyContent={{ xs: "flex-start", md: "center" }}
                     px={{ xs: 3, md: 6 }}
                     py={4}
                     sx={{ backgroundColor: "#f9f6f1" }}
@@ -335,11 +350,12 @@ const App: React.FC = () => {
                                 playsInline
                                 sx={{
                                     width: '100%',
-                                    height: { xs: 'auto', md: '90%' },
-                                    maxHeight: 420,
-                                    objectFit: 'cover',
+                                    maxHeight: { xs: 260, md: 848 },
+                                    height: 'auto',
+                                    objectFit: 'contain',
                                     borderRadius: 3,
                                     boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
+                                    backgroundColor: '#000',
                                 }}
                             />
                         </Box>
@@ -352,20 +368,20 @@ const App: React.FC = () => {
 
                 {/* Sección Equipo */}
                 <Box
-                    id="equipo"
-                    height="100%"
+                    id="servicios"
+                    minHeight={{ xs: "auto", md: "100vh" }}
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"
-                    alignItems="center"
                     px={{ xs: 3, md: 6 }}
-                    py={8}
+                    py={4}
                     sx={{ backgroundColor: "#ffffff" }}
                 >
-                    {/* Título centrado */}
+
+                {/* Título centrado */}
                     <Typography variant="h4" gutterBottom sx={{
                         textAlign: 'center',
-                        mb: 25,
+                        mb: { xs: 6, md: 25 },
                         fontWeight: 700,
                         color: '#00594f',
                         fontSize: { xs: '1.75rem', md: '2rem' }
@@ -375,13 +391,14 @@ const App: React.FC = () => {
                     {/* Testimonios en dos columnas */}
                     <Box
                         display="flex"
-                        flexDirection="row"
+                        flexDirection={{ xs: "column", md: "row" }}
+                        flexWrap={{ md: "wrap" }}
                         width="100%"
                         justifyContent="center"
                         alignItems="stretch"
                         gap={4}
                     >
-                        {/* Testimonio 1 a la izquierda */}
+                    {/* Testimonio 1 a la izquierda */}
                         <Box
                             width={{ xs: "100%", md: "45%" }}
                             display="flex"
@@ -487,7 +504,7 @@ const App: React.FC = () => {
                 {/* Sección Cómo funciona */}
                 <Box
                     id="como-funciona"
-                    minHeight="100vh"
+                    minHeight={{ xs: "auto", md: "40vh" }}
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"
@@ -583,7 +600,7 @@ const App: React.FC = () => {
                 {/* Sección Sobre mí */}
                 <Box
                     id="sobre-mi"
-                    minHeight="100vh"
+                    minHeight={{ xs: "auto", md: "60vh" }}
                     display="flex"
                     flexDirection="column"
                     justifyContent="center"

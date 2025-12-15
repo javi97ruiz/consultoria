@@ -1,11 +1,9 @@
 import React from 'react';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { AppBar, Toolbar, Typography, Box, Button } from '@mui/material';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import '../node_modules/swiper/swiper.min.css';
 import '../node_modules/swiper/modules/pagination.min.css';
 import '../node_modules/swiper/modules/autoplay.min.css';
-import { Pagination, Autoplay } from 'swiper/modules';
 import './css/styles.css';
 import ContactForm from "./components/ContactForm";
 import { useNavigate } from 'react-router-dom';
@@ -169,61 +167,33 @@ const App: React.FC = () => {
           sx={{ backgroundColor: "#f9f6f1" }}
         >
           {/* Carrusel de imágenes a la izquierda */}
-          <Box width="75%" height="100%" display="flex" justifyContent="center" minWidth={0} alignItems="center"
-          sx={{
-              '& .swiper-pagination-bullet': {
-              backgroundColor: '#00594f', // Cambia el color de los puntos
-              width: '12px', // Cambia el tamaño de los puntos
-              height: '12px',
-              opacity: 0.2, // Ajusta la opacidad
-              },
-              '& .swiper-pagination-bullet-active': {
-                backgroundColor: '#008c7a', // Cambia el color del punto activo
-                opacity: 1, // Asegura que el punto activo sea completamente visible
-              },
-            }}>
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 6000 }}
-              spaceBetween={30}
-              slidesPerView={1}
-              style={{ height: '90%', margin: '20px' }}
+            <Box
+                width="75%"
+                height="100%"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                minWidth={0}
             >
-              <SwiperSlide>
                 <Box
-                  component="img"
-                  src="../public/Recurso-17entrevista.png"
-                  alt="Imagen 1"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
+                    component="img"
+                    src="/Papeleo.jpg"
+                    alt="Imagen principal"
+                    sx={{
+                        width: '100%',
+                        height: {
+                            xs: 'auto',     // móvil
+                            md: '90%',      // desktop
+                        },
+                        maxHeight: '100%',
+                        objectFit: 'cover',
+                        borderRadius: 2,
+                    }}
                 />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/despacho-abogados-consultoria-integral.webp"
-                  alt="Imagen 2"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/imagen3-seccion1.jpg"
-                  alt="Imagen 3"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-            </Swiper>
-          </Box>
+            </Box>
 
-          {/* Texto descriptivo a la derecha */}
+
+            {/* Texto descriptivo a la derecha */}
           <Box width="25%" height="90%" minWidth={0} display="flex" flexDirection="column" alignItems="center">
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 13, textAlign: 'center' }}>
                 ¿Tiene alguna condición incapacitante que le condicione laboralmente?
@@ -238,64 +208,95 @@ const App: React.FC = () => {
           </Box>
         </Box>
 
-        {/* Sección Servicios */}
-        <Box
-          id="servicios"
-          height="100%"
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          px={2}
-          sx={{ backgroundColor: "#f9f6f1" }}
-        >
-          {/* Título centrado y separado */}
-          <Typography
-            variant="h4"
-            gutterBottom
-            sx={{ textAlign: 'center', mt: 4, mb: 25, letterSpacing: 1 }}
-          >
-            Especialista en incapacidad permanente
-          </Typography>
-          {/* Contenido dividido en dos columnas */}
+          {/* Sección Servicios */}
           <Box
-            display="flex"
-            flexDirection="row"
-            width="100%"
-            justifyContent="center"
-            alignItems="stretch"
-            mt={2}
-            mb={4}
+              id="servicios"
+              minHeight="100vh"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              px={2}
+              sx={{ backgroundColor: "#f9f6f1" }}
           >
-            {/* Descripción, ocupa el 50% */}
-            <Box width="50%" display="flex" flexDirection="column" justifyContent="center" alignItems="center" px={2}>
-              <Typography variant="body1" sx={{ textAlign: 'center', fontSize: '1.1rem' }}>
-                Solo trabajo este tipo de casos, lo que me permite darte un trato 100% personalizado, con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
-              </Typography>
-            </Box>
-            {/* Lista, ocupa el otro 50% */}
-            <Box width="50%" display="flex" flexDirection="column" justifyContent="center" alignItems="center" px={2}>
-              <Box
-                component="ul"
-                sx={{
-                  listStyle: 'disc',
-                  pl: 3,
-                  m: 0,
-                  fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-                  fontSize: '1.08rem',
-                  color: 'inherit',
-                  textAlign: 'left',
-                  lineHeight: 2,
-                }}
+              {/* Título */}
+              <Typography
+                  variant="h4"
+                  gutterBottom
+                  sx={{
+                      textAlign: { xs: 'center', md: 'left' },
+                      mt: 4,
+                      mb: 6,
+                      letterSpacing: 1,
+                  }}
               >
-                <li>Trato cercano y humano</li>
-                <li>Análisis gratuito de tu caso</li>
-                <li>Explicación clara de opciones y fases</li>
-                <li>Posibilidad de pago por fases</li>
+                  Especialista en incapacidad permanente
+              </Typography>
+
+              {/* Contenido principal */}
+              <Box
+                  display="flex"
+                  flexDirection={{ xs: 'column', md: 'row' }}
+                  width="100%"
+                  alignItems="center"
+                  gap={4}
+                  mb={6}
+              >
+                  {/* Texto izquierda */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      flexDirection="column"
+                      justifyContent="center"
+                      gap={3}
+                  >
+                      <Typography
+                          variant="body1"
+                          sx={{ textAlign: 'left', fontSize: '1.1rem' }}
+                      >
+                          Solo trabajo este tipo de casos, lo que me permite darte un trato 100% personalizado, con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
+                      </Typography>
+
+                      <Box
+                          component="ul"
+                          sx={{
+                              listStyle: 'disc',
+                              pl: 3,
+                              m: 0,
+                              fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                              fontSize: '1.08rem',
+                              lineHeight: 2,
+                          }}
+                      >
+                          <li>Trato cercano y humano</li>
+                          <li>Análisis gratuito de tu caso</li>
+                          <li>Explicación clara de opciones y fases</li>
+                          <li>Posibilidad de pago por fases</li>
+                      </Box>
+                  </Box>
+
+                  {/* Imagen derecha */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                  >
+                      <Box
+                          component="img"
+                          src="/Papeleo.jpg"
+                          alt="Servicios de incapacidad permanente"
+                          sx={{
+                              width: '100%',
+                              height: { xs: 'auto', md: '90%' },
+                              maxHeight: 420,
+                              objectFit: 'cover',
+                              borderRadius: 2,
+                          }}
+                      />
+                  </Box>
               </Box>
-            </Box>
           </Box>
-        </Box>
+
 
         {/* Sección Equipo */}
         <Box
@@ -396,65 +397,156 @@ const App: React.FC = () => {
           </Box>
         </Box>
 
-        {/* Sección Cómo funciona */}
-<Box
-  id="como-funciona"
-  height="100%"
-  display="flex"
-  flexDirection="column"
-  justifyContent="center"
-  alignItems="center"
-  px={2}
-  sx={{ backgroundColor: "#f9f6f1" }}
->
-  <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', mt: 4, mb: 10 }}>
-    ¿Cómo funciona?
-  </Typography>
-  <Typography variant="h6" gutterBottom sx={{ textAlign: 'center', mb: 10 }}>
-    Proceso simple en 3 pasos
-  </Typography>
-  <Box
-    component="ol"
-    sx={{
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-      fontSize: '1.08rem',
-      color: 'inherit',
-      textAlign: 'left',
-      lineHeight: 2,
-      maxWidth: 500,
-      margin: '0 auto',
-      pl: 3,
-    }}
-  >
-    <li>Solicitas tu análisis gratuito</li>
-    <li>Le explicamos su situación y opciones reales</li>
-    <li>Le acompañamos paso a paso en todo el proceso, sin sorpresas</li>
-  </Box>
-</Box>
+          {/* Sección Cómo funciona */}
+          <Box
+              id="como-funciona"
+              minHeight="100vh"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              px={2}
+              sx={{ backgroundColor: "#f9f6f1" }}
+          >
+              {/* Contenido principal */}
+              <Box
+                  display="flex"
+                  flexDirection={{ xs: 'column', md: 'row' }}
+                  width="100%"
+                  alignItems="center"
+                  gap={4}
+              >
+                  {/* Texto izquierda */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      flexDirection="column"
+                      justifyContent="center"
+                      gap={3}
+                  >
+                      <Typography
+                          variant="h4"
+                          gutterBottom
+                          sx={{ textAlign: { xs: 'center', md: 'left' }, mt: 4 }}
+                      >
+                          ¿Cómo funciona?
+                      </Typography>
 
-{/* Sección Sobre mí */}
-<Box
-  id="sobre-mi"
-  height="100%"
-  display="flex"
-  justifyContent="center"
-  alignItems="center"
-  px={2}
-  sx={{ backgroundColor: "#f9f6f1" }}
->
-  <Box width="100%" maxWidth={700} display="flex" flexDirection="column" alignItems="center">
-    <Typography variant="h4" gutterBottom sx={{ textAlign: 'center', mb: 10}}>
-      Sobre nosotros
-    </Typography>
-    <Typography variant="body1" sx={{ textAlign: 'center', mt: 10 }}>
-        10 años de experiencia trabajando exclusivamente en casos de incapacidad permanente
-        respaldan nuestro trabajo. Nos distingue nuestro enfoque humano, cercano y realista con el cliente.
-        Absoluta honestidad frente a su caso: le explicamos lo que se puede hacer, cuándo y cómo.
-    </Typography>
-  </Box>
-</Box>
+                      <Typography
+                          variant="h6"
+                          gutterBottom
+                          sx={{ textAlign: { xs: 'center', md: 'left' } }}
+                      >
+                          Proceso simple en 3 pasos
+                      </Typography>
 
-        {/* Sección Preguntas Frecuentes */}
+                      <Box
+                          component="ol"
+                          sx={{
+                              fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+                              fontSize: '1.08rem',
+                              lineHeight: 2,
+                              pl: 3,
+                              m: 0,
+                          }}
+                      >
+                          <li>Solicitas tu análisis gratuito</li>
+                          <li>Le explicamos su situación y opciones reales</li>
+                          <li>Le acompañamos paso a paso en todo el proceso, sin sorpresas</li>
+                      </Box>
+                  </Box>
+
+                  {/* Imagen derecha */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                  >
+                      <Box
+                          component="img"
+                          src="/Reunion.jpg"
+                          alt="Proceso de trabajo"
+                          sx={{
+                              width: '100%',
+                              height: { xs: 'auto', md: '90%' },
+                              maxHeight: 420,
+                              objectFit: 'cover',
+                              borderRadius: 2,
+                          }}
+                      />
+                  </Box>
+              </Box>
+          </Box>
+
+
+          {/* Sección Sobre mí */}
+          <Box
+              id="sobre-mi"
+              minHeight="100vh"
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              px={2}
+              sx={{ backgroundColor: "#f9f6f1" }}
+          >
+              <Box
+                  display="flex"
+                  flexDirection={{ xs: 'column', md: 'row' }}
+                  width="100%"
+                  alignItems="center"
+                  gap={4}
+              >
+                  {/* Texto izquierda */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      flexDirection="column"
+                      justifyContent="center"
+                      gap={3}
+                  >
+                      <Typography
+                          variant="h4"
+                          gutterBottom
+                          sx={{ textAlign: { xs: 'center', md: 'left' } }}
+                      >
+                          Sobre nosotros
+                      </Typography>
+
+                      <Typography
+                          variant="body1"
+                          sx={{ textAlign: { xs: 'center', md: 'left' } }}
+                      >
+                          10 años de experiencia trabajando exclusivamente en casos de incapacidad permanente
+                          respaldan nuestro trabajo. Nos distingue nuestro enfoque humano, cercano y realista con el cliente.
+                          Absoluta honestidad frente a su caso: le explicamos lo que se puede hacer, cuándo y cómo.
+                      </Typography>
+                  </Box>
+
+                  {/* Imagen derecha */}
+                  <Box
+                      width={{ xs: '100%', md: '50%' }}
+                      display="flex"
+                      justifyContent="center"
+                      alignItems="center"
+                  >
+                      <Box
+                          component="img"
+                          src="/Papeleo.jpg"
+                          alt="Equipo especializado en incapacidad permanente"
+                          sx={{
+                              width: '100%',
+                              height: { xs: 'auto', md: '90%' },
+                              maxHeight: 420,
+                              objectFit: 'cover',
+                              borderRadius: 2,
+                          }}
+                      />
+                  </Box>
+              </Box>
+          </Box>
+
+
+          {/* Sección Preguntas Frecuentes */}
         <Box
           id="faq"
           height="100%"
@@ -548,60 +640,31 @@ const App: React.FC = () => {
           </Box>
 
           {/* Carrusel de imágenes a la derecha */}
-          <Box width="75%" height="100%" display="flex" justifyContent="center" minWidth={0} alignItems="center"
-          sx={{
-              '& .swiper-pagination-bullet': {
-              backgroundColor: '#00594f', // Cambia el color de los puntos
-              width: '12px', // Cambia el tamaño de los puntos
-              height: '12px',
-              opacity: 0.2, // Ajusta la opacidad
-              },
-              '& .swiper-pagination-bullet-active': {
-                backgroundColor: '#008c7a', // Cambia el color del punto activo
-                opacity: 1, // Asegura que el punto activo sea completamente visible
-              },
-            }}
-          >
-            <Swiper
-              modules={[Pagination, Autoplay]}
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 6000 }}
-              spaceBetween={30}
-              slidesPerView={1}
-              style={{ height: '90%', margin: '20px' }}
+            <Box
+                width="75%"
+                height="100%"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                minWidth={0}
             >
-              <SwiperSlide>
                 <Box
-                  component="img"
-                  src="../public/Recurso-17entrevista.png"
-                  alt="Imagen 1"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
+                    component="img"
+                    src="/ConversacionTelefonica.jpg"
+                    alt="Imagen principal"
+                    sx={{
+                        width: '100%',
+                        height: {
+                            xs: 'auto',     // móvil
+                            md: '90%',      // desktop
+                        },
+                        maxHeight: '100%',
+                        objectFit: 'cover',
+                        borderRadius: 2,
+                    }}
                 />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/despacho-abogados-consultoria-integral.webp"
-                  alt="Imagen 2"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Box
-                  component="img"
-                  src="../public/imagen3-seccion1.jpg"
-                  alt="Imagen 3"
-                  height="100%"
-                  width="100%"
-                  sx={{ objectFit: 'cover' }}
-                />
-              </SwiperSlide>
-            </Swiper>
-          </Box>
+            </Box>
+
         </Box>
       </Box>
       

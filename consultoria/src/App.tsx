@@ -782,7 +782,7 @@ const App: React.FC = () => {
                                 },
                                 boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
                             }}
-                            onClick={() => navigate('/ejemplos-consultas')}
+                            onClick={() => navigate('/consultas')}
                         >
                             Saber más
                         </Button>

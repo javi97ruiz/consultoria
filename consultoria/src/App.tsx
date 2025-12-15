@@ -5,6 +5,7 @@ import './css/styles.css';
 import ContactForm from "./components/ContactForm";
 import { useNavigate } from 'react-router-dom';
 import GoogleCalendarButton from "./components/GoogleCalendarButton"
+/*import VideoPlayer from "./components/VideoPlayer.tsx";*/
 
 const App: React.FC = () => {
     const navigate = useNavigate();
@@ -327,7 +328,7 @@ const App: React.FC = () => {
                             </Box>
                         </Box>
 
-                        {/* Imagen derecha */}
+                        {/* Vídeo derecha */}
                         <Box
                             width={{ xs: '100%', md: '50%' }}
                             display="flex"
@@ -335,9 +336,11 @@ const App: React.FC = () => {
                             alignItems="center"
                         >
                             <Box
-                                component="img"
-                                src="/FirmaDocumentos.jpg"
-                                alt="Servicios de incapacidad permanente"
+                                component="video"
+                                src="/videos/VideoExplicacion.mp4"
+                                controls
+                                preload="metadata"
+                                playsInline
                                 sx={{
                                     width: '100%',
                                     height: { xs: 'auto', md: '90%' },
@@ -345,14 +348,12 @@ const App: React.FC = () => {
                                     objectFit: 'cover',
                                     borderRadius: 3,
                                     boxShadow: '0 15px 40px rgba(0,89,79,0.15)',
-                                    transition: 'transform 0.3s, box-shadow 0.3s',
-                                    '&:hover': {
-                                        transform: 'scale(1.02)',
-                                        boxShadow: '0 20px 50px rgba(0,89,79,0.25)'
-                                    }
                                 }}
                             />
                         </Box>
+
+
+
                     </Box>
                 </Box>
 

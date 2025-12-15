@@ -253,7 +253,8 @@ const App: React.FC = () => {
                           variant="body1"
                           sx={{ textAlign: 'left', fontSize: '1.1rem' }}
                       >
-                          Solo trabajo este tipo de casos, lo que me permite darte un trato 100% personalizado, con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
+                          Solo trabajo este tipo de casos, lo que me permite darte un trato 100% personalizado,
+                          con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
                       </Typography>
 
                       <Box
@@ -283,7 +284,7 @@ const App: React.FC = () => {
                   >
                       <Box
                           component="img"
-                          src="/Papeleo.jpg"
+                          src="/FirmaDocumentos.jpg"
                           alt="Servicios de incapacidad permanente"
                           sx={{
                               width: '100%',
@@ -531,7 +532,7 @@ const App: React.FC = () => {
                   >
                       <Box
                           component="img"
-                          src="/Papeleo.jpg"
+                          src="/VideoLlamada.jpg"
                           alt="Equipo especializado en incapacidad permanente"
                           sx={{
                               width: '100%',

@@ -120,7 +120,7 @@ const App: React.FC = () => {
             <Typography variant="h4" gutterBottom sx={{ marginBottom: 5, textAlign: 'center' }}>
                 Especialistas en incapacidad permanente
             </Typography>
-            <Typography variant="body1" sx={{ textAlign: 'center', marginLeft: 2, marginRight: 2 }}>
+            <Typography variant="body1" sx={{ textAlign: 'center', marginLeft: 2, marginRight: 2, marginBottom: 5 }}>
                 Solo trabajamos casos de incapacidades permanentes, lo que nos permite darle un trato 100% personalizado,
                 con explicaciones claras, soluciones concretas y una hoja de ruta desde el primer momento.
                 <li>Trato cercano y humano</li>

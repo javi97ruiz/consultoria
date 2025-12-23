@@ -9,9 +9,17 @@ function Blog() {
       {/* Header con botón de volver */}
       <AppBar position="static">
         <Toolbar sx={{ backgroundColor: "#00594f", justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div">
-            Mi Logo
-          </Typography>
+            <Box
+                component="img"
+                src="/LogoCompleto.jpg"
+                alt="Mi logo"
+                sx={{
+                    height: 48,
+                    width: "auto",
+                    cursor: "pointer"
+                }}
+                onClick={() => window.location.href = "/"}
+            />
           <Button
             color="inherit"
             sx={{
@@ -47,7 +55,7 @@ function Blog() {
       {/* Footer igual que en App */}
       <Box component="footer" bgcolor="#00594f" color="white" p={2} textAlign="center">
         <Typography variant="body2">
-          © 2025 Mi Consultoría
+          © 2025 JM Incapacidades
         </Typography>
       </Box>
     </Box>

@@ -47,9 +47,17 @@ function EjemplosConsultas() {
       {/* Header con botón de volver */}
       <AppBar position="static">
         <Toolbar sx={{ backgroundColor: "#00594f", justifyContent: "space-between" }}>
-          <Typography variant="h6" component="div">
-            Mi Logo
-          </Typography>
+            <Box
+                component="img"
+                src="/LogoCompleto.jpg"
+                alt="Mi logo"
+                sx={{
+                    height: 48,
+                    width: "auto",
+                    cursor: "pointer"
+                }}
+                onClick={() => window.location.href = "/"}
+            />
           <Button
             color="inherit"
             sx={{
